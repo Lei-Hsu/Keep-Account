@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { COLOR, FONT } from "../../style/style";
 
+import { GlobalContext } from "../../context/GlobalState";
+
 const ListWrapper = styled.div`
   width: 100%;
-  height: 60vh;
+  min-height: 60vh;
 `;
 const List = styled.ul`
   display: flex;
@@ -19,14 +21,20 @@ const Item = styled.li`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid ${COLOR.normal};
+  :nth-last-child(1) {
+    border-bottom: none;
+  }
 `;
 const Kind = styled.span`
+  width: 25%;
   color: ${COLOR.primary};
   font-weight: bold;
 `;
 const Title = styled.span`
+  width: 25%;
   color: ${COLOR.normal};
   font-size: ${FONT.md};
+  text-align: left;
 `;
 const Detail = styled.div``;
 const Spent = styled.span`
@@ -42,41 +50,22 @@ const Delete = styled.button`
 `;
 
 function ItemsList() {
+  const { itemsList, deleteItems } = useContext(GlobalContext);
   return (
     <ListWrapper>
       <List>
-        <Item>
-          <Kind>飲食</Kind>
-          <Title>漢堡</Title>
-          <Detail>
-            <Spent>$100</Spent>
-            <Delete>X</Delete>
-          </Detail>
-        </Item>
-        <Item>
-          <Kind>飲食</Kind>
-          <Title>漢堡</Title>
-          <Detail>
-            <Spent>$100</Spent>
-            <Delete>X</Delete>
-          </Detail>
-        </Item>
-        <Item>
-          <Kind>飲食</Kind>
-          <Title>漢堡</Title>
-          <Detail>
-            <Spent>$100</Spent>
-            <Delete>X</Delete>
-          </Detail>
-        </Item>
-        <Item>
-          <Kind>飲食</Kind>
-          <Title>漢堡</Title>
-          <Detail>
-            <Spent>$100</Spent>
-            <Delete>X</Delete>
-          </Detail>
-        </Item>
+        {itemsList.map((items) => {
+          return (
+            <Item key={items.id}>
+              <Kind>{items.category}</Kind>
+              <Title>{items.item}</Title>
+              <Detail>
+                <Spent>${items.price}</Spent>
+                <Delete onClick={() => deleteItems(items.id)}>X</Delete>
+              </Detail>
+            </Item>
+          );
+        })}
       </List>
     </ListWrapper>
   );

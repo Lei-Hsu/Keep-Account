@@ -21,5 +21,6 @@ export const ButtonWrapper = styled.div`
   left: 0;
   display: flex;
   width: 100%;
-  height: 15vh;
+  height: 130px;
+  z-index: 1;
 `;

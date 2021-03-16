@@ -2,6 +2,10 @@
   margin: 0;
   padding: 0;
 }
+body {
+  height: 100vh;
+  background: #485563;
+}
 h1 {
   margin: 0;
 }

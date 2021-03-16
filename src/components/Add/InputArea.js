@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { COLOR } from "../../style/style";
+
+import { GlobalContext } from "../../context/GlobalState";
 
 const InputWrapper = styled.div`
   width: 100%;
@@ -41,9 +44,13 @@ const Kind = styled.button`
     outline: none;
   }
 `;
+const Money = styled.span`
+  margin-top: 10px;
+  color: ${COLOR.danger};
+`;
 const InputMoneyArea = styled.div`
   width: 100%;
-  margin-top: 30px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,26 +72,87 @@ const Decrease = styled.button`
 `;
 
 function InputArea() {
+  const [itemName, setItemName] = useState("");
+  const [money, setMoney] = useState(0);
+  const { addItems } = useContext(GlobalContext);
+  const history = useHistory();
+  // 商品名稱
+  const handleItemName = (e) => {
+    setItemName(e.target.value);
+  };
+  // 商品價格
+  const handleMoneyChange = (e) => {
+    setMoney(e.target.value);
+  };
+  // + - 100的按鈕
+  const plusAndDecrease = (num) => {
+    setMoney((pre) => eval(pre + num));
+  };
+  const addItemsAction = (e) => {
+    e.preventDefault();
+    // 以防使用者沒輸入商品名稱
+    if (itemName === "") {
+      alert("請輸入商品名稱");
+    } else {
+      let item = {
+        id: 10,
+        category: e.target.value,
+        item: itemName,
+        price: eval(money),
+      };
+      addItems(item);
+      history.push("/");
+    }
+  };
   return (
     <InputWrapper>
-      <InputItem placeholder="請輸入購買的商品"></InputItem>
+      <InputItem
+        onChange={handleItemName}
+        placeholder="請輸入購買的商品"
+      ></InputItem>
+      {eval(money) ? <Money>金額：{money}</Money> : <Money>請輸入金額</Money>}
       <InputMoneyArea>
-        <Decrease>-100</Decrease>
-        <InputMoney placeholder="請輸入金額"></InputMoney>
-        <Plus>+100</Plus>
+        <Decrease onClick={() => plusAndDecrease(-100)}>-100</Decrease>
+        <InputMoney
+          placeholder="請輸入金額"
+          onChange={handleMoneyChange}
+        ></InputMoney>
+        <Plus onClick={() => plusAndDecrease("+100")}>+100</Plus>
       </InputMoneyArea>
       <Category>
-        <Kind>飲食</Kind>
-        <Kind>交通油錢</Kind>
-        <Kind>日常用品</Kind>
-        <Kind>娛樂</Kind>
-        <Kind>居家</Kind>
-        <Kind>學習</Kind>
-        <Kind>醫療</Kind>
-        <Kind>電話網路</Kind>
-        <Kind>水電瓦斯</Kind>
-        <Kind>運動健身</Kind>
-        <Kind>治裝費</Kind>
+        <Kind onClick={(e) => addItemsAction(e)} value="飲食">
+          飲食
+        </Kind>
+        <Kind onClick={(e) => addItemsAction(e)} value="交通油錢">
+          交通油錢
+        </Kind>
+        <Kind onClick={(e) => addItemsAction(e)} value="日常用品">
+          日常用品
+        </Kind>
+        <Kind onClick={(e) => addItemsAction(e)} value="娛樂">
+          娛樂
+        </Kind>
+        <Kind onClick={(e) => addItemsAction(e)} value="居家">
+          居家
+        </Kind>
+        <Kind onClick={(e) => addItemsAction(e)} value="學習">
+          學習
+        </Kind>
+        <Kind onClick={(e) => addItemsAction(e)} value="醫療">
+          醫療
+        </Kind>
+        <Kind onClick={(e) => addItemsAction(e)} value="電話網路">
+          電話網路
+        </Kind>
+        <Kind onClick={(e) => addItemsAction(e)} value="水電瓦斯">
+          水電瓦斯
+        </Kind>
+        <Kind onClick={(e) => addItemsAction(e)} value="運動健身">
+          運動健身
+        </Kind>
+        <Kind onClick={(e) => addItemsAction(e)} value="治裝費">
+          治裝費
+        </Kind>
       </Category>
     </InputWrapper>
   );

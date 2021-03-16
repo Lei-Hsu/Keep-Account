@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { COLOR, FONT } from "../../style/style";
 
+import { GlobalContext } from "../../context/GlobalState";
+
 const SumWrapper = styled.div`
   width: 100%;
-  height: 15vh;
+  height: 130px;
   background: ${COLOR.primary};
   display: flex;
   justify-content: center;
@@ -17,9 +19,14 @@ const TotalMoney = styled.h1`
 `;
 
 function TotalSum() {
+  const { itemsList } = useContext(GlobalContext);
+  // 計算總金額
+  const totalMoney = itemsList
+    .map((items) => items.price)
+    .reduce((a, b) => a + b, 0);
   return (
     <SumWrapper>
-      <TotalMoney>$0</TotalMoney>
+      <TotalMoney>${totalMoney}</TotalMoney>
     </SumWrapper>
   );
 }
