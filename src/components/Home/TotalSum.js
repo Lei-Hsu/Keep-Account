@@ -7,7 +7,7 @@ const SumWrapper = styled.div`
   height: 15vh;
   background: ${COLOR.primary};
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 `;
 const TotalMoney = styled.h1`

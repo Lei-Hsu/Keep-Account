@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { FooterBtn, ButtonWrapper } from "../../style/button";
 import { COLOR } from "../../style/style";
 
-const AddItem = styled(FooterBtn)``;
 const Cancel = styled(FooterBtn)`
+  width: 100%;
   background: ${COLOR.danger};
 `;
 
@@ -15,9 +15,6 @@ function AddPage() {
     <>
       <InputArea />
       <ButtonWrapper>
-        <AddItem>
-          <Link>新增</Link>
-        </AddItem>
         <Cancel>
           <Link to="/">取消</Link>
         </Cancel>

@@ -37,6 +37,9 @@ const Kind = styled.button`
   :hover {
     background: ${COLOR.danger};
   }
+  :focus {
+    outline: none;
+  }
 `;
 const InputMoneyArea = styled.div`
   width: 100%;
@@ -65,6 +68,11 @@ function InputArea() {
   return (
     <InputWrapper>
       <InputItem placeholder="請輸入購買的商品"></InputItem>
+      <InputMoneyArea>
+        <Decrease>-100</Decrease>
+        <InputMoney placeholder="請輸入金額"></InputMoney>
+        <Plus>+100</Plus>
+      </InputMoneyArea>
       <Category>
         <Kind>飲食</Kind>
         <Kind>交通油錢</Kind>
@@ -78,11 +86,6 @@ function InputArea() {
         <Kind>運動健身</Kind>
         <Kind>治裝費</Kind>
       </Category>
-      <InputMoneyArea>
-        <Decrease>-100</Decrease>
-        <InputMoney placeholder="請輸入金額"></InputMoney>
-        <Plus>+100</Plus>
-      </InputMoneyArea>
     </InputWrapper>
   );
 }
