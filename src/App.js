@@ -1,8 +1,10 @@
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 
-import TotalSum from "./components/TotalSum";
-import ItemsList from "./components/ItemsList";
-import SelectBtn from "./components/SelectBtn";
+import TotalSum from "./components/Home/TotalSum";
+import HomePage from "./pages/HomePage/";
+import AddPage from "./pages/AddPage/";
+import Statistics from "./pages/StatisticsPage/";
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -31,13 +33,24 @@ const Container = styled.div`
 
 function App() {
   return (
-    <Wrapper>
-      <Container>
-        <TotalSum />
-        <ItemsList />
-        <SelectBtn />
-      </Container>
-    </Wrapper>
+    <Router>
+      <Wrapper>
+        <Container>
+          <TotalSum />
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route exact path="/add">
+              <AddPage />
+            </Route>
+            <Route exact path="/statistics">
+              <Statistics />
+            </Route>
+          </Switch>
+        </Container>
+      </Wrapper>
+    </Router>
   );
 }
 

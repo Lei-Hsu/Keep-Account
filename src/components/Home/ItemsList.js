@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { COLOR, FONT } from "../style/style";
+import { COLOR, FONT } from "../../style/style";
 
 const ListWrapper = styled.div`
   width: 100%;
