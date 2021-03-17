@@ -2,51 +2,9 @@ import React, { useReducer, createContext } from "react";
 import ItemsReducer from "./ItemsReducer";
 import { ConstantType } from "./ConstantType";
 
+const item = JSON.parse(localStorage.getItem("item")) || [];
 const initialState = {
-  itemsList: [
-    {
-      id: 1,
-      category: "飲食",
-      item: "漢堡",
-      price: 100,
-    },
-    {
-      id: 2,
-      category: "學習",
-      item: "買書",
-      price: 100,
-    },
-    {
-      id: 3,
-      category: "娛樂",
-      item: "看電影",
-      price: 200,
-    },
-    {
-      id: 4,
-      category: "交通油錢",
-      item: "加油",
-      price: 150,
-    },
-    {
-      id: 5,
-      category: "飲食",
-      item: "飲料",
-      price: 50,
-    },
-    {
-      id: 1,
-      category: "飲食",
-      item: "漢堡",
-      price: 100,
-    },
-    {
-      id: 2,
-      category: "學習",
-      item: "買書",
-      price: 100,
-    },
-  ],
+  itemsList: item,
 };
 
 // create context

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { COLOR, FONT } from "../../style/style";
 
@@ -51,6 +51,10 @@ const Delete = styled.button`
 
 function ItemsList() {
   const { itemsList, deleteItems } = useContext(GlobalContext);
+  useEffect(() => {
+    ///更新完畫面再存入LocalStorage 新增的與刪除的一起進行，不用兩次動作
+    localStorage.setItem("item", JSON.stringify(itemsList));
+  }, [itemsList]);
   return (
     <ListWrapper>
       <List>

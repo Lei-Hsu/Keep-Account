@@ -3,6 +3,9 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { COLOR } from "../../style/style";
 
+//uuid
+import { v4 as uuidv4 } from "uuid";
+
 import { GlobalContext } from "../../context/GlobalState";
 
 const InputWrapper = styled.div`
@@ -95,7 +98,8 @@ function InputArea() {
       alert("請輸入商品名稱");
     } else {
       let item = {
-        id: 10,
+        //uuid
+        id: uuidv4(),
         category: e.target.value,
         item: itemName,
         price: eval(money),
