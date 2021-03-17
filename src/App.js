@@ -35,10 +35,10 @@ function App() {
               <Route exact path="/">
                 <HomePage />
               </Route>
-              <Route exact path="/add">
+              <Route path="/add">
                 <AddPage />
               </Route>
-              <Route exact path="/statistics">
+              <Route path="/statistics">
                 <Statistics />
               </Route>
             </Switch>
