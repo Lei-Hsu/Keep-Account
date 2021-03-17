@@ -21,9 +21,6 @@ const Item = styled.li`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid ${COLOR.normal};
-  :nth-last-child(1) {
-    border-bottom: none;
-  }
 `;
 const Kind = styled.span`
   width: 25%;
