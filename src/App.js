@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 
 import { GlobalProvider } from "./context/GlobalState";
@@ -26,7 +26,7 @@ const Container = styled.div`
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
       <GlobalProvider>
         <Wrapper>
           <Container>
@@ -45,7 +45,7 @@ function App() {
           </Container>
         </Wrapper>
       </GlobalProvider>
-    </Router>
+    </HashRouter>
   );
 }
 
