@@ -4,6 +4,14 @@ import styled from "styled-components";
 import { FooterBtn, ButtonWrapper } from "../../style/button";
 import { COLOR } from "../../style/style";
 
+import PieChart from "../../components/Statistics/PieChart";
+
+const ChartArea = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 const Cancel = styled(FooterBtn)`
   width: 100%;
   background: ${COLOR.danger};
@@ -12,6 +20,9 @@ const Cancel = styled(FooterBtn)`
 function Statistics() {
   return (
     <>
+      <ChartArea>
+        <PieChart />
+      </ChartArea>
       <ButtonWrapper>
         <Cancel>
           <Link to="/">返回首頁</Link>
