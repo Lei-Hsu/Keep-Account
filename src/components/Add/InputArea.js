@@ -85,7 +85,10 @@ function InputArea() {
   };
   // 商品價格
   const handleMoneyChange = (e) => {
-    setMoney(e.target.value);
+    //以防使用者輸入文字
+    if (isNaN(Number(e.target.value))) {
+      alert("請輸入數字");
+    } else setMoney(e.target.value);
   };
   // + - 100的按鈕
   const plusAndDecrease = (num) => {
