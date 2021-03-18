@@ -127,37 +127,37 @@ function InputArea() {
         <Plus onClick={() => plusAndDecrease("+100")}>+100</Plus>
       </InputMoneyArea>
       <Category>
-        <Kind onClick={(e) => addItemsAction(e)} value="飲食">
+        <Kind onClick={addItemsAction} value="飲食">
           飲食
         </Kind>
-        <Kind onClick={(e) => addItemsAction(e)} value="交通油錢">
+        <Kind onClick={addItemsAction} value="交通油錢">
           交通油錢
         </Kind>
-        <Kind onClick={(e) => addItemsAction(e)} value="日常用品">
+        <Kind onClick={addItemsAction} value="日常用品">
           日常用品
         </Kind>
-        <Kind onClick={(e) => addItemsAction(e)} value="娛樂">
+        <Kind onClick={addItemsAction} value="娛樂">
           娛樂
         </Kind>
-        <Kind onClick={(e) => addItemsAction(e)} value="居家">
+        <Kind onClick={addItemsAction} value="居家">
           居家
         </Kind>
-        <Kind onClick={(e) => addItemsAction(e)} value="學習">
+        <Kind onClick={addItemsAction} value="學習">
           學習
         </Kind>
-        <Kind onClick={(e) => addItemsAction(e)} value="醫療">
+        <Kind onClick={addItemsAction} value="醫療">
           醫療
         </Kind>
-        <Kind onClick={(e) => addItemsAction(e)} value="電話網路">
+        <Kind onClick={addItemsAction} value="電話網路">
           電話網路
         </Kind>
-        <Kind onClick={(e) => addItemsAction(e)} value="水電瓦斯">
+        <Kind onClick={addItemsAction} value="水電瓦斯">
           水電瓦斯
         </Kind>
-        <Kind onClick={(e) => addItemsAction(e)} value="運動健身">
+        <Kind onClick={addItemsAction} value="運動健身">
           運動健身
         </Kind>
-        <Kind onClick={(e) => addItemsAction(e)} value="治裝費">
+        <Kind onClick={addItemsAction} value="治裝費">
           治裝費
         </Kind>
       </Category>
